@@ -16,15 +16,15 @@ The following are the design goals that I think are important, but I'm definitel
 
 ## Quickstart
 
-If you want to quickly start a NixOS guest using Lima, you can use the [nixos.yaml](https://github.com/nixos-lima/nixos-lima/blob/master/nixos.yaml) template via `https://`. You do not need a Nix installation on your host machine, only a Lima installation. 
+If you want to quickly start a NixOS guest using Lima, you can use the [nixos.yaml](https://github.com/nixos-lima/nixos-lima/blob/master/nixos.yaml) template via `https://`. You do not need a Nix installation on your host machine, only a Lima installation.
 
 1. Install Lima
 2. Run the following command to start a NixOS guest with the latest released nixos-lima system image:
 
 ```bash
-limactl start --yes https://raw.githubusercontent.com/nixos-lima/nixos-lima/master/nixos.yaml
+limactl start --yes https://raw.githubusercontent.com/sciamp/nixos-lima/main/nixos.yaml
 ```
-    
+
 3. See [NixOS Lima VM Config Sample](https://github.com/nixos-lima/nixos-lima-config-sample) for an example of how to maintain the NixOS system configuration (and optionally Home Manager) in your NixOS guest VM.
 
 ## Using the nixos-lima Module in Your Own Configuration
@@ -34,7 +34,7 @@ In your `flake.nx`, include `nixos-lima` as a flake input:
 ```
   inputs = {
     ...
-    nixos-lima.url = "github:nixos-lima/nixos-lima/"
+    nixos-lima.url = "github:sciamp/nixos-lima/"
     ...
   };
 ```
@@ -65,15 +65,15 @@ If you want to build your own `nixos-lima` or contribute to this project, you ca
 
 A working Nix installation capable of building Linux systems. This includes:
 
-* Linux system with Nix installed
-* Linux VM with Nix installed (e.g. under macOS)
-* macOS system with [linux-builder](https://nixos.org/manual/nixpkgs/unstable/#sec-darwin-builder) installed via [Nix Darwin](https://github.com/LnL7/nix-darwin)
-* macOS system with [nix-rosetta-builder](https://github.com/cpick/nix-rosetta-builder)
+- Linux system with Nix installed
+- Linux VM with Nix installed (e.g. under macOS)
+- macOS system with [linux-builder](https://nixos.org/manual/nixpkgs/unstable/#sec-darwin-builder) installed via [Nix Darwin](https://github.com/LnL7/nix-darwin)
+- macOS system with [nix-rosetta-builder](https://github.com/cpick/nix-rosetta-builder)
 
 Flakes must be enabled.
 
 ### Generating the image
-  
+
 This example is for `aarch64`, but you can replace `aarch64` with `x86_64` if you are on an x86_64 Linux or macOS system.
 
 ```bash
@@ -110,22 +110,22 @@ limactl restart nixos
 
 ## History
 
-This is based on [kasuboski/nixos-lima](https://github.com/kasuboski/nixos-lima) and there were about a half-dozen [forks](https://github.com/kasuboski/nixos-lima/forks) of that repo, but none of them seemed to be making an effort to be generic/reusable, accept contributions, create documentation, etc. So I created this repo to try to create something that multiple developers can use and contribute to. (So now there are a _half-dozen plus one_ projects 🤣  -- see [xkcd "Standards"](https://xkcd.com/927/))
+This is based on [kasuboski/nixos-lima](https://github.com/kasuboski/nixos-lima) and there were about a half-dozen [forks](https://github.com/kasuboski/nixos-lima/forks) of that repo, but none of them seemed to be making an effort to be generic/reusable, accept contributions, create documentation, etc. So I created this repo to try to create something that multiple developers can use and contribute to. (So now there are a _half-dozen plus one_ projects 🤣 -- see [xkcd "Standards"](https://xkcd.com/927/))
 
 ## References
 
-* Lima discussion topic: [NixOS guest? #430](https://github.com/lima-vm/lima/discussions/430)
-* Lima issue: [Template for nixOS #3688](https://github.com/lima-vm/lima/issues/3688)
-* [NixOS Dev Environment on Mac](https://www.joshkasuboski.com/posts/nix-dev-environment/) January, 24 2023 by [Josh Kasuboski](https://www.joshkasuboski.com)
+- Lima discussion topic: [NixOS guest? #430](https://github.com/lima-vm/lima/discussions/430)
+- Lima issue: [Template for nixOS #3688](https://github.com/lima-vm/lima/issues/3688)
+- [NixOS Dev Environment on Mac](https://www.joshkasuboski.com/posts/nix-dev-environment/) January, 24 2023 by [Josh Kasuboski](https://www.joshkasuboski.com)
 
 ## Credits
 
-* Forked from: [kasuboski/nixos-lima](https://github.com/kasuboski/nixos-lima)
-* Heavily inspired by: [patryk4815/ctftools](https://github.com/patryk4815/ctftools/tree/master/lima-vm)
+- Forked from: [kasuboski/nixos-lima](https://github.com/kasuboski/nixos-lima)
+- Heavily inspired by: [patryk4815/ctftools](https://github.com/patryk4815/ctftools/tree/master/lima-vm)
 
 The unmodified, upstream README is in `README_upstream.md`.
 
 Fixes/patches from:
 
-* [unidevel/nixos-lima](https://github.com/unidevel/nixos-lima)
-* [lima-vm/alpine-lima](https://github.com/lima-vm/alpine-lima)
+- [unidevel/nixos-lima](https://github.com/unidevel/nixos-lima)
+- [lima-vm/alpine-lima](https://github.com/lima-vm/alpine-lima)
